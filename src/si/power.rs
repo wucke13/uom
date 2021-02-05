@@ -62,18 +62,6 @@ quantity! {
 
 #[cfg(test)]
 mod tests {
-
-    #[test]
-    fn test_dbm() {
-        use crate::si::power as p;
-        use crate::si::quantities::*;
-        use crate::tests::Test;
-
-        let x = Power::new::<p::decibel_milliwatt>(0.0);
-        println!("{:?}", x.get::<p::watt>());
-        println!("{:?}", x.get::<p::decibel_watt>());
-    }
-
     storage_types! {
         use crate::num::One;
         use crate::si::energy as e;
