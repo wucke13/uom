@@ -85,6 +85,8 @@ use_serde = ["serde"]
 rational-support = ["num-rational"]
 bigint-support = ["num-bigint", "num-rational/num-bigint-std"]
 complex-support = ["num-complex"]
+# enable sin/cos for no_std builds, via libm
+libm = [ "num-traits/libm" ]
 
 [[example]]
 name = "base"
