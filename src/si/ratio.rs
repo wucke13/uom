@@ -1,7 +1,7 @@
 //! Ratio (dimensionless quantity).
 
 #[cfg(any(feature = "std", feature = "libm"))]
-use super::angle::{Angle, radian};
+use super::angle::{radian, Angle};
 
 quantity! {
     /// Ratio (dimensionless quantity).
@@ -45,14 +45,14 @@ where
     #[must_use = "method returns a new number and does not mutate the original value"]
     #[inline(always)]
     pub fn acos(self) -> Angle<U, V> {
-        Angle::new::<radian>(self.value.acos())
+        Angle::new::<radian>(<V as crate::num::Float>::acos(self.value))
     }
 
     /// Computes the value of the inverse hyperbolic cosine of the ratio.
     #[must_use = "method returns a new number and does not mutate the original value"]
     #[inline(always)]
     pub fn acosh(self) -> Angle<U, V> {
-        Angle::new::<radian>(self.value.acosh())
+        Angle::new::<radian>(<V as crate::num::Float>::acosh(self.value))
     }
 
     /// Computes the value of the inverse sine of the ratio.
@@ -66,28 +66,28 @@ where
     #[must_use = "method returns a new number and does not mutate the original value"]
     #[inline(always)]
     pub fn asinh(self) -> Angle<U, V> {
-        Angle::new::<radian>(self.value.asinh())
+        Angle::new::<radian>(<V as crate::num::Float>::asinh(self.value))
     }
 
     /// Computes the value of the inverse tangent of the ratio.
     #[must_use = "method returns a new number and does not mutate the original value"]
     #[inline(always)]
     pub fn atan(self) -> Angle<U, V> {
-        Angle::new::<radian>(self.value.atan())
+        Angle::new::<radian>(<V as crate::num::Float>::atan(self.value))
     }
 
     /// Computes the value of the inverse hyperbolic tangent of the ratio.
     #[must_use = "method returns a new number and does not mutate the original value"]
     #[inline(always)]
     pub fn atanh(self) -> Angle<U, V> {
-        Angle::new::<radian>(self.value.atanh())
+        Angle::new::<radian>(<V as crate::num::Float>::atanh(self.value))
     }
 
     /// Returns `e^(self)`, (the exponential function).
     #[must_use = "method returns a new number and does not mutate the original value"]
     #[inline(always)]
     pub fn exp(self) -> Ratio<U, V> {
-        Ratio::new::<ratio>(self.value.exp())
+        Ratio::new::<ratio>(<V as crate::num::Float>::exp(self.value))
     }
 
     /// Returns 2^(self).
@@ -112,7 +112,7 @@ where
     #[must_use = "method returns a new number and does not mutate the original value"]
     #[inline(always)]
     pub fn log(self, base: V) -> Ratio<U, V> {
-        Ratio::new::<ratio>(self.value.log(base))
+        Ratio::new::<ratio>(<V as crate::num::Float>::log(self.value, base))
     }
 
     /// Returns the base 2 logarithm of the number.

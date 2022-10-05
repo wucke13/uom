@@ -133,7 +133,7 @@ where
     #[must_use = "method returns a new number and does not mutate the original value"]
     #[inline(always)]
     pub fn atan2(self, other: Self) -> Angle<U, V> {
-        Angle::new::<radian>(self.value.atan2(other.value))
+        Angle::new::<radian>(<V as crate::num::Float>::atan2(self.value, other.value))
     }
 }
 
